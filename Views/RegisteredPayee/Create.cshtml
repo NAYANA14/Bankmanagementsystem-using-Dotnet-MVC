@@ -1,0 +1,73 @@
+@model BankManagement.Models.RegisteredPayee
+
+@{
+    ViewData["Title"] = "Create";
+    Layout="~/Views/Shared/_Auth_Layout.cshtml";
+}
+<div class="container mt-3">
+    <div class="row mb-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card p-2 card2">
+                <h3 class="text-center text-primary">Add Beneficiary Details</h3>
+                <div class="card-body">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="row mb-2">
+                    <label asp-for="Bank" class="control-label"></label>
+                    <div class="col-md-6 mt-2">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Bank" value="Indian Bank"
+                                id="Indian Bank" required checked>
+                            <label class="form-check-label" for="Indian Bank">Indian Bank</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Bank" value="Other Bank"
+                                id="Other Bank" required>
+                            <label class="form-check-label" for="Other Bank">Other Bank</label>
+                        </div>
+                    </div>
+            <div class="form-group mt-2">
+                <label asp-for="AccountNumber" class="control-label"></label>
+                <input asp-for="AccountNumber" class="form-control" />
+                <span asp-validation-for="AccountNumber" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="ConfirmAccountNumber" class="control-label"></label>
+                <input asp-for="ConfirmAccountNumber" class="form-control" />
+                <span asp-validation-for="ConfirmAccountNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BranchCity" class="control-label"></label>
+                <input asp-for="BranchCity" class="form-control" />
+                <span asp-validation-for="BranchCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NickName" class="control-label"></label>
+                <input asp-for="NickName" class="form-control" />
+                <span asp-validation-for="NickName" class="text-danger"></span>
+            </div>
+              <div class="form-group mt-5 mb-2">
+                            <div class="card  border-light  card2 bg-light text-primary">
+                                <p><i class="bi bi-exclamation-circle-fill fs-4"></i> Money will be credicted based
+                                    solely on the payee account number and the payee name will not be used</p>
+                            </div>
+                        </div>
+            <div class="form-group mt-3">
+                <input type="submit"  value="PROCEED" class="btn btn-primary form-control" />
+            </div>
+        </form>
+          </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+@Html.Raw(TempData["msg"])

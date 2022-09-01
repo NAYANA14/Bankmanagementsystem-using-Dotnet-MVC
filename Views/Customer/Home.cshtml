@@ -1,0 +1,64 @@
+@model BankManagement.Models.Customer
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Auth_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row mt-5 mb-5">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-2">
+            <a class="text-decoration-none" asp-action="Create">
+                <div class="card border-light mt-5 home">
+                    <img class="card-img-top " src="/images/account.webp" alt="Card image cap" height="200px">
+                    <div class="card-body text-center">
+                        <h4 class="card-text  ">Create An Account</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-2">
+            <a class="text-decoration-none" asp-controller="Account" asp-action="MyAccounts">
+                <div class="card  border-light mt-5 home">
+                    <img class="card-img-top " src="/images/balance.webp" alt="Card image cap" height="200px">
+                    <div class="card-body text-center">
+                        <h4 class="card-text ">View All Accounts</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-2">
+            <a class="text-decoration-none" asp-controller="RegisteredPayee" asp-action="Create">
+                <div class="card  border-light mt-5 home">
+                    <img class="card-img-top " src="/images/bank.webp" alt="Card image cap" height="200px">
+                    <div class="card-body text-center">
+                        <h4 class=" card-text">Add Beneficiery</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-2">
+           <a class="text-decoration-none" asp-area="" asp-controller="RegisteredPayee" asp-action="SentMoneyIndex">
+                <div class="card  border-light mt-5 home">
+                    <img class="card-img-top " src="/images/Money-transfer.jpg" alt="Card image cap" height="200px">
+                    <div class="card-body text-center">
+                        <h4 class="card-text ">SentMoney</h4>
+                           </div>
+                </div>
+            </a>
+                 
+        </div>
+        <div class="col-xl-2">
+ <a class="text-decoration-none" asp-area="" asp-controller="Transaction" asp-action="MyTransactions">
+                <div class="card  border-light mt-5 home">
+                    <img class="card-img-top " src="/images/trans.webp" alt="Card image cap" height="200px">
+                    <div class="card-body text-center">
+                        <h4 class="card-text ">Transactions</h4>
+                           </div>
+
+                </div>
+            </a>
+        </div>
+        <div class="col-xl-1"></div>
+    </div>
+</div>

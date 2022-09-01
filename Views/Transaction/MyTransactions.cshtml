@@ -1,0 +1,56 @@
+@model IEnumerable<BankManagement.Models.Transaction>
+@{
+    ViewData["Title"] = "MyTransactions";
+  Layout = "~/Views/Shared/_Auth_Layout.cshtml"; 
+}
+<div class="container p-5">
+    <div class="row">
+      <table class="table table-striped " cellspacing="0" width="100%" id="datefiltertable">
+        <thead>
+             <form asp-action="MyTransactions" method="post">
+            <tr class="bg-secondary">
+                <td><p class="text-uppercase fs-4 text-white">Transactions</p></td> 
+                <td><label for="start" class="text-white">From</label>           
+    <input type="date" id="start" name="start" class="mb-2"></td>
+       <td><label for="end" class="text-white">To</label>
+                <input type="date" id="end" name="end" class="mb-2"></td>
+                <td> <input type="submit" value="Search" class="mb-2"></td>
+                
+                </tr>            
+                 </form>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+        </tr>
+}
+    </tbody>
+</table> 
+</div>
+</div>

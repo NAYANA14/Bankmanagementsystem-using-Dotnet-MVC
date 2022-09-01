@@ -1,0 +1,36 @@
+@model BankManagement.Models.MoneyTransfer
+@{
+    ViewData["Title"] = "Review";
+    Layout = "~/Views/Shared/_Auth_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row mb-5 mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-5">
+            <div class="card card2">
+                <h4 class="text-center text-primary py-3">Transaction Review</h4>
+                <div class="card-body">
+                    <dl class="row px-3">
+                        <dt class="col-sm-5 "> @Html.DisplayNameFor(model =>model.RegisteredPayee.Name):</dt>
+                        <dd class="col-sm-7 "> @Html.DisplayFor(model =>model.RegisteredPayee.Name)</dd>
+                        <dt class="col-sm-5">@Html.DisplayNameFor(model =>model.RegisteredPayee.AccountNumber):</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(model =>model.RegisteredPayee.AccountNumber)</dd>
+                        <dt class="col-sm-5"> @Html.DisplayNameFor(model=>model.SenderAccountNumber):</dt>
+                        <dd class="col-sm-7"> @Html.DisplayFor(model=>model.SenderAccountNumber)</dd>
+                        <dt class="col-sm-5">@Html.DisplayNameFor(model=>model.Amount)</dt>
+                        <dd class="col-sm-7">@Html.DisplayFor(model=>model.Amount)</dd>
+                        <form asp-action="Review">
+    <div class="form-group mt-3">
+        
+                                    
+        <input type="hidden" asp-for="Id" />
+      <button type="submit" class="btn btn-primary form-control "> Pay <span ><i class="fa fa-inr"></i> @Html.DisplayFor(model=>model.Amount)</span></button>
+
+    </div>
+</form>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

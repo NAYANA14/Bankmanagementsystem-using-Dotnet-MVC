@@ -1,0 +1,40 @@
+@model IEnumerable<BankManagement.Models.Account>
+@{
+    ViewData["Title"] = "MyAccounts";
+    Layout="~/Views/Shared/_Auth_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row mb-5">
+        <h3 class="text-center text-primary">Account Summary</h3>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+             @foreach (var item in Model)
+                        {
+            <div class="card mt-5 card2">
+                <div class="card-body">
+                    <dl class="row px-5">
+                         <dt class="col-sm-3"> @Html.DisplayNameFor(modelItem => item.Type)</dt>
+                       <dd class="col-sm-9"> @Html.DisplayFor(modelItem => item.Type)</dd>
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.AccountNumber):</dt>
+                            <dd class="col-sm-8"> @Html.DisplayFor(modelItem => item.AccountNumber)</dd>
+                            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Balance):</dt>
+                            <dd class="col-sm-8"> @Html.DisplayFor(modelItem => item.Balance)</dd>
+                       
+                </div>
+            </div>
+            }
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+}

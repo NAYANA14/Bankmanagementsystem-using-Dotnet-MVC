@@ -1,0 +1,73 @@
+@model IEnumerable<BankManagement.Models.RegisteredPayee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Auth_Layout.cshtml";
+}
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr class="bg-secondary">
+                        <td>
+                        </td>
+                        <td>
+                            <p class="text-uppercase text-white fs-4">Registered Payees</p>
+                        </td>
+                        <td></td>
+                        <td>
+                            <p><a asp-action="Create" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i
+                                        class="bi bi-plus-lg"></i> Add New</a></p>
+                        </td>
+                    <tr>
+                        
+                        <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                       
+                        <th>
+                                @Html.DisplayNameFor(model => model.AccountNumber)
+                        </th>
+                         <th>
+                                @Html.DisplayNameFor(model => model.Bank)
+                        </th>
+                        
+                        
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            
+                             <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AccountNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Bank)
+                            </td>
+                          
+                            
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                          
+                        </tr>
+                        
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

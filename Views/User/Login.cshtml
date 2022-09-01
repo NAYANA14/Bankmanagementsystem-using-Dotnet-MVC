@@ -1,0 +1,64 @@
+@model BankManagement.Models.User
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user registration</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row mb-5 mt-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 mt-5">
+                <div class="card" >
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="w-100" src="/Images/bank.jpg" alt="" height="500px">
+                        </div>
+                        <div class="col-md-6 mt-5">
+                            <h2 class="text-center text-uppercase text-primary mt-5">Sign In</h2>
+                            <form asp-action="Login">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group pe-5 ps-2 mt-3">
+                                    <label asp-for="UserName" class="control-label"></label>
+                                    <input asp-for="UserName" class="form-control" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group pe-5 ps-2 mt-2">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input asp-for="Password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="form-group text-center my-3 pe-5 ps-2">
+                                    <input type="submit" value="login" class="btn btn-primary form-control" />
+                                </div>
+                                <p class="text-center">Not a user?<a class="text-decoration-none"
+                                        asp-action="Create">SignUp</a></a>
+                            </form>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

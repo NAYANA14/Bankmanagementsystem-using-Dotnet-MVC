@@ -1,0 +1,150 @@
+@model BankManagement.ViewModels.CustomerViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="col-md-10 mx-auto py-4">
+    <div class="card">
+        <div class="card-header bg-primary text-uppercase text-white">
+            <h4 class="text-center">Edit Profile</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Address" class="control-label"></label>
+                            <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <label asp-for="AccountType" class="control-label"></label>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="AccountType" value="Savings Account"
+                                id="SavingsAccount" required>
+                            <label class="form-check-label" for="SavingsAccount">Savings Account</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="AccountType"
+                                value="Fixed Deposit " id="FixedAccount" required>
+                            <label class="form-check-label" for="FixedAccount">Fixed Deposit</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="AccountType"
+                                value="Recurring Deposit " id="RDAccount" required>
+                            <label class="form-check-label" for="RDAccount">Recurring Deposit</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="AccountType"
+                                value="Current Account" id="CurrentAccount" required>
+                            <label class="form-check-label" for="CurrentAccount">Current Account</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="DateOfBirth" class="control-label"></label>
+                            <input asp-for="DateOfBirth" type="Date" class="form-control" />
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label"></label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="AdharNumber" class="control-label"></label>
+                            <input asp-for="AdharNumber" class="form-control" />
+                            <span asp-validation-for="AdharNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PanNumber" class="control-label"></label>
+                            <input asp-for="PanNumber" class="form-control" />
+                            <span asp-validation-for="PanNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Image" class="control-label"></label>
+                            <div class="custom-file">
+                                <input asp-for="Image" class="custom-file-input" id="customFile">
+                                <img src="~/images/@Model.ExistingImage" height="40" width="40"
+                                    asp-append-version="true" />
+                            </div>
+
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Signature" class="control-label"></label>
+                            <div class="custom-file">
+                                <input asp-for="Signature" class="custom-file-input" id="customFile">
+                                <img src="~/images/@Model.ExistingSign" height="40" width="40"
+                                    asp-append-version="true" />
+                            </div>
+
+                            <span asp-validation-for="Signature" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+
+                    <div class="form-group">
+                        <input type="submit" value="submit" class="btn btn-sm btn-primary rounded-0 text-uppercase" />
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

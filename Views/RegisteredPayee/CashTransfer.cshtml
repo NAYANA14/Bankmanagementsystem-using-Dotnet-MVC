@@ -1,0 +1,74 @@
+@model BankManagement.ViewModels.CashTransferViewModel
+@{
+    ViewData["Title"] = "CashTransfer";
+    Layout = "~/Views/Shared/_Auth_Layout.cshtml";
+}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 mt-5">
+            <div class="card card2">
+                <h3 class="text-center text-primary py-3">Account Transfer</h3>
+                <div class="card-body">
+                    <dl class="row px-3">
+                        <dt class="col-md-12 ">@Html.DisplayFor(model=>model.RegisteredPayee.Name) *
+                            @Html.DisplayFor(model=>model.RegisteredPayee.NickName)</dt>
+                        <dt class="col-md-9">@Html.DisplayFor(model=>model.RegisteredPayee.Bank) :
+                            @Html.DisplayFor(model=>model.RegisteredPayee.AccountNumber)</dt>
+                        <dt class="col-md-3 text-primary text-end"><i class="bi bi-bank2 fs-5 "></i></dt>
+                    </dl>
+                    <form asp-action="CashTransfer">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row text-center py-1 ">
+                            <div class="col"></div>
+                            <div class="col">
+                                <b><label asp-for="Amount" class="control-label "></label></b>
+
+                                <div class="input-group ">
+                                    <span class="input-group-text"><i class="fa fa-inr"></i></span>
+                                    <input asp-for="Amount" class="form-control " />
+                                </div>
+
+
+                                <span asp-validation-for="Amount" class="text-danger"></span>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="form-group">
+                            <b><label asp-for="SenderAccountNumber" class="control-label"></label></b>
+                            @Html.DropDownListFor(model => model.SenderAccountNumber,
+                            (IEnumerable<SelectListItem>)ViewData["AccountList"], new { @class = "form-control" })
+                            <span asp-validation-for="SenderAccountNumber" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mt-3">
+                            <div class="card  border-light mt-2 card2 bg-light text-primary">
+                                <p><i class="bi bi-exclamation-circle-fill fs-4"></i> Instant transactions up to 5
+                                    lakhs.Available 24*7.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4 mb-5 border-bottom">
+                            <input asp-for="Comments" class="form-control border-light fs-6"
+                                placeholder="Comments(Optional)" />
+                        </div>
+                        <div class="form-group">
+                            <div class="card  border-light  card2 bg-light text-primary">
+                                <p><i class="bi bi-exclamation-circle-fill fs-4"></i> Money will be credicted based
+                                    solely on the payee account number and the payee name will not be used</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group pt-3 pb-3">
+                            <input type="submit"
+                                class="btn btn-sm btn-primary border-rounded text-uppercase form-control"
+                                value="Send Money" />
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@model BankManagement.Models.RegisteredPayeeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Auth_Layout.cshtml";
+}
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        <h4 class="text-center text-primary py-3">Select An Account</h4>
+           <form  asp-action="SentMoneyIndex" method="get">
+                <div class="form-group mb-3"> 
+      <input type="text" asp-for="searchName" class="form-control border-rounded" placeholder="Search By Name" >
+        </div>
+</form>             
+            @foreach (var item in Model.RegisteredPayees)
+                    {
+                       <a class="text-decoration-none" asp-route-id="@item.Id" asp-action="CashTransfer" >
+                <div class="card  border-light mt-2 card2" >
+                    <dl class="row px-5">
+                        <dt class = "col-sm-12  text-dark  fs-6">@Html.DisplayFor(modelItem => item.Name) *  @Html.DisplayFor(modelItem => item.NickName)</dt> 
+                        <dt class = "col-sm-12  text-dark">@Html.DisplayFor(modelItem => item.Bank) : @Html.DisplayFor(modelItem => item.AccountNumber)</dt> 
+                                                    
+                   </dl>
+                </div>
+                       </a>
+                        }
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
